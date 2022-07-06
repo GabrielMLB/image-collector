@@ -46,11 +46,12 @@ class Realsense:
 
                 if first_image:
                     cv2.imwrite('default.jpg', color_frame)
+                    print("first image saved")
                     first_image = 0
 
                 if process_time.seconds >= seconds:
                     current_time = datetime.now().strftime("%Y_%m_%d_%H_%M")
-                    name_image = f"{current_time}_{lat}_{lon}_{heading}.jpg"
+                    name_image = f"{current_time};{lat};{lon};{heading}.jpg"
                     cv2.imwrite(f"{path}/{name_image}", color_frame)
                     start = datetime.now()
                     print(f"{name_image} saved.")
